@@ -1,31 +1,36 @@
 # BrainSpeed IQ
 
-A Flutter brain-training game with a manga-inspired interface, XP and rank progression, timed cognitive mini-games, and local progress tracking.
+A Flutter brain-training game with a manga-inspired dark interface, XP/rank progression, timed mini-games, and locally saved progress.
 
-## Status
+## Included in this first scaffold
 
-Initial project scaffold. Not yet production-ready; run Flutter analysis, tests, and Android device QA before release.
+- **Reflex Rush** — tap-target reaction challenge
+- **Memory Matrix** — memorize and repeat a number sequence
+- **Pattern Breaker** — complete an arithmetic sequence
+- XP, rank tiers, best-score tracking, and local persistence
+- Flutter widget smoke tests and a GitHub Actions CI workflow
 
-## Getting started
+## Run locally
 
-Install Flutter stable, then run:
+Install the Flutter stable SDK, clone this repository, then run:
 
 ```bash
+flutter create --platforms=android,web --project-name brain_speed_iq .
 flutter pub get
+dart format lib test
 flutter analyze
 flutter test
 flutter run
 ```
 
-## Planned modules
+The `flutter create` command generates the Android and web platform folders, which are intentionally not checked into this initial source scaffold.
 
-- Reaction speed
-- Memory sequence
-- Number logic
-- Pattern recognition
-- XP, streaks, and rank progression
-- Local-only profile and history
+## Current status
 
-## Important note
+This is an initial playable prototype, not a production release. CI has been configured but must run successfully before treating the code as verified. Build and test on physical Android devices before publishing.
 
-Scores are game performance metrics, not a clinically validated IQ assessment. Ads, billing, child privacy controls, and store compliance must be integrated and verified before release.
+## Important limitations
+
+- Scores are game-performance metrics, **not** a clinically validated IQ assessment.
+- Ads and mediation, billing and purchase verification, parental controls, privacy disclosures, and Play Store release configuration are not implemented yet.
+- Do not collect children's personal data until the privacy, consent, SDK, and applicable legal requirements have been reviewed.
