@@ -74,7 +74,7 @@ class _GameScreenState extends State<GameScreen> {
       round++;
       if (widget.mode == Mode.reflex) { targetVisible = true; startedAt = DateTime.now().millisecondsSinceEpoch; message = 'TAP THE TARGET!'; }
       else if (widget.mode == Mode.memory) {
-        sequence = List.generate(min(3 + round ~/ 3, 7), (_) => random.nextInt(9) + 1); entered = []; showing = true; message = 'MEMORIZE THE SEQUENCE';
+        final numbers = List<int>.generate(9, (i) => i + 1)..shuffle(random); sequence = numbers.take(min(3 + round ~/ 3, 7)).toList(); entered = []; showing = true; message = 'MEMORIZE THE SEQUENCE';
         Future<void>.delayed(Duration(milliseconds: 900 + sequence.length * 250), () { if (!mounted || done) return; setState(() { showing = false; message = 'REPEAT IT IN ORDER'; }); });
       } else { target = random.nextInt(8) + 2; message = 'WHAT COMES NEXT?'; }
     });
